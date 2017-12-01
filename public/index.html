@@ -2,9 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Placeholder Title</title>
+    <title>DOGGR</title>
 
-    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen">
+
+    <link rel="stylesheet" href="style.css">
 
     <script src="/index.js" charset="utf-8" defer></script>
   </head>
@@ -12,22 +16,121 @@
 
     <header>
 
-      <h1 class="site-title"><a href="/index.html">Placeholder Title</a></h1>
+      <h1 class="site-title"><a href="/index.html">D<i class="fa fa-paw" aria-hidden="true"></i>GGR</a></h1>
 
-    </header>
+      <aside class="search-container">
 
-    <main class="content-stuff">
+        <button id="search-button" class="action-button"><i class="fa fa-search" aria-hidden="true"></i></button>
 
-      <aside>
-
-        <h2>One of these might be nice</h2>
+        <div class="search-input-container">
+          <input type="text" name="search-text" id="search-text" class="search-input" placeholder="Search">
+        </div>
 
       </aside>
 
-      <section>
-        <div>
-          <p>Some placeholder stuff</p>
+      <aside class="upload-container">
+
+        <button id="upload-button" class="action-button"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload</button>
+
+        <!--<div id="modal-backdrop" class="hidden"></div>-->
+        <!--<div id="upload-modal" class="hidden">-->
+          <!--<div class="modal-dialog">-->
+
+            <!--<div class="modal-header">-->
+              <!--<h3>Upload an image</h3>-->
+              <!--<button type="button" id="modal-close" class="modal-hide-button">&times;</button>-->
+            <!--</div>-->
+
+            <!--<div class="modal-body">-->
+
+              <!--<p>[[Image uploading content]]</p>-->
+
+            <!--</div>-->
+
+            <!--<div class="modal-footer">-->
+              <!--<button type="button" id="modal-accept" class="action-button">Upload</button>-->
+              <!--<button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>-->
+            <!--</div>-->
+
+          <!--</div>-->
+        <!--</div>-->
+      </aside>
+
+    </header>
+
+    <aside class="below-header-container">
+
+      <button id="most-loved-button" class="action-button">Most Loved <i class="fa fa-heart" aria-hidden="true"></i></button>
+
+      <div class="popular-tags-container">
+        <h3>Popular tags:</h3>
+        <a href="#" class="popular-tag">Puppy</a>
+        <a href="#" class="popular-tag">Funny</a>
+        <a href="#" class="popular-tag">Pug</a>
+      </div>
+
+    </aside>
+
+    <main class="content-stuff">
+
+      <section id="photos">
+
+        <div class="photo-container">
+          <div class="photo-contents">
+            <div class="photo-image-container">
+              <img src="https://static.pexels.com/photos/406014/pexels-photo-406014.jpeg" alt="Dog">
+              <button id="love-button" class="action-button"><i class="fa fa-heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="photo-tags-container">
+              <a href="#" class="tag">[[Tag1]]</a>
+              <a href="#" class="tag">[[Tag2]]</a>
+              <a href="#" class="tag">[[Tag3]]</a>
+            </div>
+          </div>
         </div>
+
+        <div class="photo-container">
+          <div class="photo-contents">
+            <div class="photo-image-container">
+              <img src="https://static.pexels.com/photos/551628/pexels-photo-551628.jpeg" alt="Dog">
+              <button id="love-button" class="action-button"><i class="fa fa-heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="photo-tags-container">
+              <a href="#" class="tag">[[Tag1]]</a>
+              <a href="#" class="tag">[[Tag2]]</a>
+              <a href="#" class="tag">[[Tag3]]</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-container">
+          <div class="photo-contents">
+            <div class="photo-image-container">
+              <img src="https://static.pexels.com/photos/247522/pexels-photo-247522.jpeg" alt="Dog">
+              <button id="love-button" class="action-button"><i class="fa fa-heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="photo-tags-container">
+              <a href="#" class="tag">[[Tag1]]</a>
+              <a href="#" class="tag">[[Tag2]]</a>
+              <a href="#" class="tag">[[Tag3]]</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-container">
+          <div class="photo-contents">
+            <div class="photo-image-container">
+              <img src="https://static.pexels.com/photos/69372/pexels-photo-69372.jpeg" alt="Dog">
+              <button id="love-button" class="action-button"><i class="fa fa-heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="photo-tags-container">
+              <a href="#" class="tag">[[Tag1]]</a>
+              <a href="#" class="tag">[[Tag2]]</a>
+              <a href="#" class="tag">[[Tag3]]</a>
+            </div>
+          </div>
+        </div>
+
       </section>
 
     </main>
