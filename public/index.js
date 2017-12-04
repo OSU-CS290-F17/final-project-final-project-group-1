@@ -10,8 +10,8 @@ update.onclick = function (){
 	var passText = document.getElementById('search-text').value;
 
 	if (!passText){
-		console.log("Bar Empty");
-		
+		//console.log("Bar Empty");
+		loopReveal();
 	}//end of if
 	
 	else{
@@ -22,6 +22,7 @@ update.onclick = function (){
 
 //checks the lists of photos for photos with the title text entered.
 function loopCheckText(passed){
+	loopReveal();
 	passed = passed.toLowerCase();
 	console.log("Passed:", passed);
 	lengthOfPhotos = photos.childElementCount;
@@ -29,16 +30,24 @@ function loopCheckText(passed){
 	var postTitle;
 	var photoList = document.getElementsByClassName('photo-container');
 	for (i = 0 ; i < lengthOfPhotos; i++){
-		//console.log("Post's Text: ", photoList[i].getElementsByClassName('photo-title')[0].textContent);
 		
+		console.log("Photo's Text: ", photoList[i].getElementsByClassName('photo-title')[0].textContent);
 		photoTitle = (photoList[i].getElementsByClassName('photo-title')[0].textContent);
-		console.log("Comparing:", photoTitle, " >= ", passed);
 		photoTitle = photoTitle.toLowerCase();
-		console.log("photo's title:" , photoTitle);
 		if( (photoTitle.indexOf(passed) ) == (-1) ){
 			photoList[i].style.display = "none";
 		}//end of if
 	}//end of for
 }
 
+
+function loopReveal(){
+	lengthOfPhotos = photos.childElementCount;
+	var i = 0;
+	var postTitle;
+	var photoList = document.getElementsByClassName('photo-container');
+	for (i = 0 ; i < lengthOfPhotos; i++){
+		photoList[i].style.display = "inline-block";
+	}//end of for
+}
 //var passText = document.getElementById('search-text').value;
