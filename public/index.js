@@ -45,28 +45,27 @@ function hideUploadModal() {
 function handleModalAcceptClick() {
 
   var titleText = document.getElementById('photo-title-input').value.trim();
-  var photoURL = document.getElementById('post-photo-input').value.trim();
-  var photoTags = document.getElementById('photo-tags-input').value.trim();
+  var photoURL = document.getElementById('my-img').src.trim();
 
-  if (!titleText || !photoURL || !photoTags) {
+  if (!titleText || !photoURL) {
     alert("You must fill in all of the fields!");
   }
   else {
 
-    var newPhotoElem = createPhotoElement(titleText, photoURL, photoTags);
-    allPhotoElems.push(newPhotoElem);
+    var newPhotoElem = createPhotoElement(titleText, photoURL);
+    allPhotoContainerElems.push(newPhotoElem);
 
     var photosSection = document.getElementById('photos');
     photosSection.appendChild(newPhotoElem);
 
-    hideSellSomethingModal();
+    hideUploadModal();
 
   }
 
 }
 
 
-function createPostElement(itemText, photoURL, photoTags) {
+function createPhotoElement(itemText, photoURL) {
 
   var photoDiv = document.createElement('div');
   photoDiv.classList.add('photo-container');
@@ -74,6 +73,12 @@ function createPostElement(itemText, photoURL, photoTags) {
   var photoContentsDiv = document.createElement('div');
   photoContentsDiv.classList.add('photo-contents');
   photoDiv.appendChild(photoContentsDiv);
+
+  var photoTitleLink = document.createElement('a');
+  photoTitleLink.classList.add('photo-title');
+  photoTitleLink.href = '#';
+  photoTitleLink.textContent = itemText;
+  photoContentsDiv.appendChild(photoTitleLink);
 
   var photoImageContainerDiv = document.createElement('div');
   photoImageContainerDiv.classList.add('photo-image-container');
@@ -83,17 +88,6 @@ function createPostElement(itemText, photoURL, photoTags) {
   photoImg.src = photoURL;
   photoImg.alt = itemText;
   photoImageContainerDiv.appendChild(photoImg);
-
-
-
-  var photoTagsContainerDiv = document.createElement('div');
-  photoTagsContainerDiv.classList.add('photo-tag-container');
-  photoContentsDiv.appendChild(photoTagsContainerDiv);
-
-  var tagInputs = photoTags.split(",");
-  for (var i = 0; i < tagInputs.length; i++) {
-    var photoTag = tagInputs[i];
-  }
 
   // var spaceText1 = document.createTextNode(' ');
   // photoInfoContainerDiv.appendChild(spaceText1);
@@ -121,8 +115,8 @@ window.addEventListener('DOMContentLoaded', function () {
   var uploadButton = document.getElementById('upload-button');
   uploadButton.addEventListener('click', showUploadModal);
 
-  // var modalAcceptButton = document.getElementById('modal-accept');
-  // modalAcceptButton.addEventListener('click', handleModalAcceptClick);
+  var modalAcceptButton = document.getElementById('modal-accept');
+  modalAcceptButton.addEventListener('click', handleModalAcceptClick);
 
   var modalHideButtons = document.getElementsByClassName('modal-hide-button');
   for (var i = 0; i < modalHideButtons.length; i++) {
@@ -132,15 +126,23 @@ window.addEventListener('DOMContentLoaded', function () {
   // var filterUpdateButton = document.getElementById('filter-update-button');
   // filterUpdateButton.addEventListener('click', filterUpdate)
 
-  document.querySelector('input[type="file"]').addEventListener('change', function() {
-      if (this.files && this.files[1]) {
-          var img = document.querySelector('img');  // $('img')[1]
-          img.src = URL.createObjectURL(this.files[1]); // set src to file url
-          img.onload = imageIsLoaded; // optional onload event listener
+  // var imgSelectButton = document.querySelector('input[type="file"]')
+  // imgSelectButton.addEventListener('upload', uploadImg);
+
+});
+
+document.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+          var img = document.getElementById('my-img');  // $('img')[0]
+          img.src = URL.createObjectURL(this.files[0]); // set src to file url
+          // img.onload = imageIsLoaded; // optional onload event listener
       }
   });
 
-});
+// function uploadImg() {
+//   var img = document.getElementById('my-img');  // $('img')[0]
+//   img.src = URL.createObjectURL(); // set src to file url
+// }
 
 // Get the modal
 var modal = document.getElementById('upload-modal');
@@ -152,6 +154,7 @@ window.onclick = function(event) {
     }
 }
 
+
 // window.addEventListener('load', function() {
 //
 // });
@@ -161,7 +164,7 @@ window.onclick = function(event) {
 console.log("index.js Launches with success");
 var photoContainer = document.getElementsByClassName('photo-container');
 var lengthOfPhotos = photos.childElementCount;
-var photoTitle = document.getElementsByClassName('photo-title'); 
+var photoTitle = document.getElementsByClassName('photo-title');
 var update = document.getElementById('search-button');
 
 //Function for the update button on the search bar.
@@ -172,7 +175,7 @@ update.onclick = function (){
 		//console.log("Bar Empty");
 		loopReveal();
 	}//end of if
-	
+
 	else{
 		console.log(passText);
 		loopCheckText(passText);
@@ -189,7 +192,7 @@ function loopCheckText(passed){
 	var postTitle;
 	var photoList = document.getElementsByClassName('photo-container');
 	for (i = 0 ; i < lengthOfPhotos; i++){
-		
+
 		console.log("Photo's Text: ", photoList[i].getElementsByClassName('photo-title')[0].textContent);
 		photoTitle = (photoList[i].getElementsByClassName('photo-title')[0].textContent);
 		photoTitle = photoTitle.toLowerCase();
@@ -210,4 +213,3 @@ function loopReveal(){
 	}//end of for
 }
 //var passText = document.getElementById('search-text').value;
-

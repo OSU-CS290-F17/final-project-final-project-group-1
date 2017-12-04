@@ -262,8 +262,11 @@ header a {
 }
 
 .photo-title{
-	
+	text-decoration: none;
 	color: black;
 	margin: 2px;
 }
 
+.photo-title:hover {
+  text-decoration: underline;
+}
