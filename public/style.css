@@ -256,6 +256,14 @@ header a {
     margin-top: 20px;
 }
 
+
 .hidden {
   display: none;
 }
+
+.photo-title{
+	
+	color: black;
+	margin: 2px;
+}
+
