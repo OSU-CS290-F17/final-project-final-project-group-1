@@ -24,30 +24,28 @@ function hideUploadModal() {
 
 }
 
-// function clearSellSomethingModalInputs() {
-//
-//   var postTextInputElements = [
-//     document.getElementById('post-text-input'),
-//     document.getElementById('post-photo-input'),
-//     document.getElementById('post-price-input'),
-//     document.getElementById('post-city-input')
-//   ];
-//
-//   postTextInputElements.forEach(function (inputElem) {
-//     inputElem.value = '';
-//   });
-//
-//   var checkedPostConditionButton = document.querySelector('#post-condition-fieldset input[checked]');
-//   checkedPostConditionButton.checked = true;
-//
-// }
+function clearSellSomethingModalInputs() {
+
+  var postTextInputElements = [
+    document.getElementById('photo-title-input'),
+    document.getElementById('my-img'),
+  ];
+
+  postTextInputElements.forEach(function (inputElem) {
+    inputElem.value = '';
+  });
+
+  var checkedPostConditionButton = document.querySelector('#post-condition-fieldset input[checked]');
+  checkedPostConditionButton.checked = true;
+
+}
 
 function handleModalAcceptClick() {
 
   var titleText = document.getElementById('photo-title-input').value.trim();
   var photoURL = document.getElementById('my-img').src.trim();
 
-  if (!titleText || !photoURL) {
+  if (!titleText || photoURL == "#") {
     alert("You must fill in all of the fields!");
   }
   else {
