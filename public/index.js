@@ -213,3 +213,19 @@ function loopReveal(){
 	}//end of for
 }
 //var passText = document.getElementById('search-text').value;
+
+// function used to sort posts according to popular tags
+var tagvar = document.getElementsByClassName('popular-tag');
+
+for(var i = 0; i < tagvar.length; i++){
+tagvar[i].addEventListener('click', function(){
+    
+    var tag = this.textContent;
+    
+    console.log(tag);
+    
+loopCheckText(tag);
+    
+    
+});}
+
