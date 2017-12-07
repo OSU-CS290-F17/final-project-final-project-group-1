@@ -1,0 +1,27 @@
+{
+  "name": "Final-Project-Templating",
+  "version": "1.0.0",
+  "description": "Dynamic content using Handlebars templates",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "handlebars views/partials/photoTemplate.handlebars -f public/photoTemplate.js",
+    "start": "node server.js",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSU-CS290-F17/handlebars-templating.git"
+  },
+  "author": "Duncan",
+  "license": "None",
+  "bugs": {
+    "url": "https://github.com/OSU-CS290-F17/final-project-final-project-group-1"
+  },
+  "homepage": "https://github.com/OSU-CS290-F17/final-project-final-project-group-1#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11"
+  }
+}
