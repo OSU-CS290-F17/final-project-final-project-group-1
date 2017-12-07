@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen">
 
     <link rel="stylesheet" href="style.css">
-
-		    <script src="../public/index.js" charset="utf-8" defer></script>
+    
+    <script src="index.js" charset="utf-8" defer></script>
 
   </head>
   <body>
@@ -29,39 +29,15 @@
 
       </aside>
 
-      <aside class="upload-container">
-
-        <button id="upload-button" class="action-button"><i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload</button>
-
-        <!--<div id="modal-backdrop" class="hidden"></div>-->
-        <!--<div id="upload-modal" class="hidden">-->
-          <!--<div class="modal-dialog">-->
-
-            <!--<div class="modal-header">-->
-              <!--<h3>Upload an image</h3>-->
-              <!--<button type="button" id="modal-close" class="modal-hide-button">&times;</button>-->
-            <!--</div>-->
-
-            <!--<div class="modal-body">-->
-
-              <!--<p>[[Image uploading content]]</p>-->
-
-            <!--</div>-->
-
-            <!--<div class="modal-footer">-->
-              <!--<button type="button" id="modal-accept" class="action-button">Upload</button>-->
-              <!--<button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>-->
-            <!--</div>-->
-
-          <!--</div>-->
-        <!--</div>-->
+      <aside class="upload-button-container">
+        <button id="upload-button" class="action-button"><i class="fa fa-cloud-upload" aria-hidden="true"></i>Upload</button>
       </aside>
 
     </header>
 
     <aside class="below-header-container">
 
-      <button id="most-loved-button" class="action-button">Most Loved <i class="fa fa-heart" aria-hidden="true"></i></button>
+      <button id="most-loved-button" class="action-button">Most Loved<i class="fa fa-heart" aria-hidden="true"></i></button>
 
       <div class="popular-tags-container">
         <h3>Popular tags:</h3>
@@ -76,70 +52,56 @@
 
       <section id="photos">
 
-        <div class="photo-container">
-          <div class="photo-contents">
-		  <div class="photo-title"> A Brown Doggo </div> <!-- end of photo-title-->
-            <div class="photo-image-container">
-              <img src="https://static.pexels.com/photos/406014/pexels-photo-406014.jpeg" alt="Dog">
-              <button id="love-button" class="action-button"><i class="fa fa-heart" aria-hidden="true"></i></button>
-            </div>
-            <div class="photo-tags-container">
-              <a href="#" class="tag">[[Tag1]]</a>
-              <a href="#" class="tag">[[Tag2]]</a>
-              <a href="#" class="tag">[[Tag3]]</a>
-            </div>
-          </div>
-        </div>
+       
 
-        <div class="photo-container">
-          <div class="photo-contents">
-		  <div class="photo-title"> A Happy Pupper </div> <!-- end of photo-title-->
-            <div class="photo-image-container">
-              <img src="https://static.pexels.com/photos/551628/pexels-photo-551628.jpeg" alt="Dog">
-              <button id="love-button" class="action-button"><i class="fa fa-heart" aria-hidden="true"></i></button>
-            </div>
-            <div class="photo-tags-container">
-              <a href="#" class="tag">[[Tag1]]</a>
-              <a href="#" class="tag">[[Tag2]]</a>
-              <a href="#" class="tag">[[Tag3]]</a>
-            </div>
-          </div>
-        </div>
 
-        <div class="photo-container">
-          <div class="photo-contents">
-			<div class="photo-title"> A Reflective Doggo </div> <!-- end of photo-title-->
-            <div class="photo-image-container">
-              <img src="https://static.pexels.com/photos/247522/pexels-photo-247522.jpeg" alt="Dog">
-              <button id="love-button" class="action-button"><i class="fa fa-heart" aria-hidden="true"></i></button>
-            </div> 
-			
-            <div class="photo-tags-container">
-              <a href="#" class="tag">[[Tag1]]</a>
-              <a href="#" class="tag">[[Tag2]]</a>
-              <a href="#" class="tag">[[Tag3]]</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="photo-container">
-          <div class="photo-contents">
-		  <div class="photo-title"> A Small Pupper </div> <!-- end of photo-title-->
-            <div class="photo-image-container">
-              <img src="https://static.pexels.com/photos/69372/pexels-photo-69372.jpeg" alt="Dog">
-              <button id="love-button" class="action-button"><i class="fa fa-heart" aria-hidden="true"></i></button>
-            </div>
-            <div class="photo-tags-container">
-              <a href="#" class="tag">[[Tag1]]</a>
-              <a href="#" class="tag">[[Tag2]]</a>
-              <a href="#" class="tag">[[Tag3]]</a>
-            </div>
-          </div>
-        </div>
 
       </section>
 
+
+
     </main>
+
+    <!-- <aside class="upload-container"> -->
+
+
+
+      <div id="modal-backdrop" class="hidden"></div>
+      <div id="upload-modal" class="hidden">
+        <div class="modal-dialog">
+
+          <div class="modal-header">
+            <h3>Upload an image</h3>
+            <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+          </div>
+
+          <div class="modal-body">
+
+            <p>[[Image uploading content]]</p>
+            <input type='file'/>
+            <br><img id="my-img" src="#" alt="your image">
+
+          </div>
+
+          <div class="photo-title-element">
+            <label for="photo-title-input">Image Title</label>
+            <input type="text" id="photo-title-input"></input>
+          </div>
+
+         <!-- <div class="photo-tags-element">
+            <label for="photo-tags-input">Image Tags (Separate with commas, no spaces)</label>
+            <input type="text" id="photo-tags-input"></input>
+          </div>-->
+
+          <div class="modal-footer">
+            <button type="button" id="modal-accept" class="action-button">Upload</button>
+            <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+          </div>
+
+        </div>
+      </div>
+
+    <!-- </aside> -->
 
   </body>
 </html>
