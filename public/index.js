@@ -1,3 +1,72 @@
+// Heart button implementation
+
+var allLoveButtons = document.getElementsByClassName('love-button');
+var allLoveCounts = document.getElementsByClassName('love-count');
+
+
+function updateLoveCount(num) {
+
+    var loveCount = parseInt(allLoveCounts[num].textContent);  //get current count
+    var currentState = allLoveCounts[num].getAttribute("data-state"); //get current state of love button
+    allLoveCounts[num].remove(); //remove current count from DOM
+
+    if (currentState === "off") {
+        loveCount += 1;
+        currentState = "on";     // mark button as currently on
+    }
+
+    else {
+        loveCount -= 1;
+        currentState = "off";    // mark button as currently off
+    }
+
+    console.log('Post #: ', num);
+    console.log('loveCount==', loveCount);
+    console.log('currentState==', currentState);
+    console.log('--------');
+
+    //Put updated count and state of love button back into DOM
+    var newSpan = document.createElement('span');
+    newSpan.classList.add('love-count');
+    newSpan.setAttribute('data-state', currentState);
+    var updatedCount = document.createTextNode(loveCount);
+    newSpan.appendChild(updatedCount);
+    allLoveButtons[num].appendChild(newSpan);
+}
+
+
+function respondToLoveButton(buttonId) {
+    return function(e) {
+        e.currentTarget.classList.toggle('loveButtonHighlighted');
+        updateLoveCount(buttonId);
+    }
+}
+
+for (var i = 0; i < allLoveButtons.length; i++) {
+    allLoveButtons[i].addEventListener('click', respondToLoveButton(i));
+}
+
+
+// Most Loved button implemetation
+
+var mostLovedButton = document.getElementById('most-loved-button');
+
+function respondToMostLovedButton() {
+
+    var loveCount;
+    var max = 0;
+    for(var i = 0; i < allLoveCounts.length; i++) {
+        loveCount = parseInt(allLoveCounts[i].textContent);  //get current count
+
+        if(loveCount > max) {
+            max = loveCount;
+        }
+    }
+
+}
+
+mostLovedButton.addEventListener('click', respondToMostLovedButton);
+
 
 
 var allPhotoContainerElems = [];
@@ -217,13 +286,12 @@ var tagvar = document.getElementsByClassName('popular-tag');
 
 for(var i = 0; i < tagvar.length; i++){
 tagvar[i].addEventListener('click', function(){
-    
-    var tag = this.textContent;
-    
-    console.log(tag);
-    
-loopCheckText(tag);
-    
-    
-});}
 
+    var tag = this.textContent;
+
+    console.log(tag);
+
+loopCheckText(tag);
+
+
+});}
