@@ -251,6 +251,56 @@ header a {
     max-width: 100%;
 }
 
+.love-button-container {
+    background-color: lightslategrey;
+    width: 100%;
+}
+
+.love-button {
+    color: white;
+    background-color: lightslategrey;
+    border: 0;
+    margin: 2px 5px 5px 5px;
+    cursor: pointer;
+}
+
+.love-button:hover {
+    color: crimson;
+}
+
+.loveButtonHighlighted {
+    color: crimson;
+}
+
+.love-count {
+    color: silver;
+}
+
+.love-button-container {
+    background-color: lightslategrey;
+    width: 100%;
+}
+
+.love-button {
+    color: white;
+    background-color: lightslategrey;
+    border: 0;
+    margin: 2px 5px 5px 5px;
+    cursor: pointer;
+}
+
+.love-button:hover {
+    color: crimson;
+}
+
+.loveButtonHighlighted {
+    color: crimson;
+}
+
+.love-count {
+    color: silver;
+}
+
 .photo-tags-container {
     width: 100%;
     margin-top: 20px;
