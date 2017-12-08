@@ -1,75 +1,72 @@
+
 [
   {
     "title": "Pupper",
-    "dogURL": "https://i.pinimg.com/736x/fc/fb/8c/fcfb8cb716f1e46cde5f4bd33504d6f4--instagram-design-crazy-dog-lady.jpg",
+    "photoURL": "https://i.pinimg.com/736x/fc/fb/8c/fcfb8cb716f1e46cde5f4bd33504d6f4--instagram-design-crazy-dog-lady.jpg",
     "loveCount": 0
   },
   {
     "title": "Woofer",
-    "dogURL": "https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/Natural-Dog-Law-2-To-dogs%2C-energy-is-everything.jpg?itok=Z-ujUOUr",
+    "photoURL": "https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/Natural-Dog-Law-2-To-dogs%2C-energy-is-everything.jpg?itok=Z-ujUOUr",
     "loveCount": 0
   },
       {
     "title": "A Good Dog",
-    "dogURL": "http://www.heartlovephotography.com/wp-content/uploads/2012/12/HLP_8748.jpg",
+    "photoURL": "http://www.heartlovephotography.com/wp-content/uploads/2012/12/HLP_8748.jpg",
     "loveCount": 0
   },
        {
     "title": "Cute Pupper",
-    "dogURL": "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2016/12/pexels-photo-128817.jpeg?itok=VISZpZzQ&fc=50,50",
+    "photoURL": "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2016/12/pexels-photo-128817.jpeg?itok=VISZpZzQ&fc=50,50",
     "loveCount": 0
   },
            {
     "title": "Happy Pupper",
-    "dogURL": "https://www.allgooddogfood.com/wp-content/uploads/2014/09/cutest-puppy-ever-1383230281_org-300x200.jpg",
+    "photoURL": "https://www.allgooddogfood.com/wp-content/uploads/2014/09/cutest-puppy-ever-1383230281_org-300x200.jpg",
     "loveCount": 0
   },
                {
     "title": "Playful Boy",
-    "dogURL": "http://sitmeanssit.com/dog-training-mu/portland-dog-training/files/2012/05/playful-dog.jpg",
+    "photoURL": "http://sitmeanssit.com/dog-training-mu/portland-dog-training/files/2012/05/playful-dog.jpg",
     "loveCount": 0
   },
     
                   {
     "title": "Playful Pupper",
-    "dogURL": "https://www.warrenphotographic.co.uk/photography/bigs/41591-Playful-Yellow-Labrador-Retriever-puppy-white-background.jpg",
+    "photoURL": "https://www.warrenphotographic.co.uk/photography/bigs/41591-Playful-Yellow-Labrador-Retriever-puppy-white-background.jpg",
     "loveCount": 0
   },
                       {
     "title": "Photogenic Pupper",
-    "dogURL": "http://www.notinthedoghouse.com/wp-content/uploads/2013/11/playful-dog.jpg",
+    "photoURL": "http://www.notinthedoghouse.com/wp-content/uploads/2013/11/playful-dog.jpg",
     "loveCount": 0
   },
     
                           {
     "title": "Cute White Pupper",
-    "dogURL": "http://ghk.h-cdn.co/assets/17/30/980x490/landscape-1500925839-golden-retriever-puppy.jpg",
+    "photoURL": "http://ghk.h-cdn.co/assets/17/30/980x490/landscape-1500925839-golden-retriever-puppy.jpg",
     "loveCount": 0
   },
     
                             {
     "title": "Good Dog Husky",
-    "dogURL": "http://lifestylepubs.wordpress.s3-us-west-2.amazonaws.com/app/uploads/prod/2016/08/Bubbles_2.jpg",
+    "photoURL": "http://lifestylepubs.wordpress.s3-us-west-2.amazonaws.com/app/uploads/prod/2016/08/Bubbles_2.jpg",
     "loveCount": 0
   },
                                 {
     "title": "Playful Good Dog",
-    "dogURL": "http://truecompanionstraining.com/wp-content/uploads/good-dog-school.jpg",
+    "photoURL": "http://truecompanionstraining.com/wp-content/uploads/good-dog-school.jpg",
     "loveCount": 0
   },
                                     {
     "title": "Playful Good Dog",
-    "dogURL": "https://www.gooddoggoods.com/v/vspfiles/assets/images/good-dog-goods---black-lab-.jpg",
+    "photoURL": "https://www.gooddoggoods.com/v/vspfiles/assets/images/good-dog-goods---black-lab-.jpg",
     "loveCount": 0
   },
                                        {
     "title": "Cute Black Labs",
-    "dogURL": "https://www.gooddoggoods.com/v/vspfiles/assets/images/good-dog-goods---black-lab-.jpg",
+    "photoURL": "https://www.gooddoggoods.com/v/vspfiles/assets/images/good-dog-goods---black-lab-.jpg",
     "loveCount": 0
-  },
-]
-
-
-
-
-
+  }
+  
+ ]
