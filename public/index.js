@@ -132,18 +132,18 @@ function handleModalAcceptClick() {
 
 //uses photoTemplate to create a new dogPost and sets the values of said post
 function createPhotoElement(title, photoURL) {
-	
+
 	var photoTemplateArguments = {
     photoURL: photoURL,
 	title: title,
 	loveCount: 0
   };
-  
+
     var postHTML = Handlebars.templates.photoTemplate(photoTemplateArguments);
 	console.log("== postHTML:", postHTML);
-	
 
-  
+
+
     var photos = document.getElementById('photos');
     photos.insertAdjacentHTML('beforeend', postHTML);
 }//end of photo template
@@ -175,7 +175,7 @@ document.querySelector('input[type="file"]').addEventListener('change', function
       }
   });//end of doc.querySelector
 
-  
+
 // Get the modal
 var modal = document.getElementById('upload-modal');
 
@@ -242,3 +242,18 @@ function loopReveal(){
 	}//end of for
 }
 //var passText = document.getElementById('search-text').value;
+
+// function used to sort posts according to popular tags
+var tagvar = document.getElementsByClassName('popular-tag');
+
+for(var i = 0; i < tagvar.length; i++){
+tagvar[i].addEventListener('click', function(){
+
+    var tag = this.textContent;
+
+    console.log(tag);
+
+loopCheckText(tag);
+
+
+});}
