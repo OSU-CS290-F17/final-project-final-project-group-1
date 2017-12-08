@@ -8,7 +8,7 @@ function updateLoveCount(num) {
 
     var loveCount = parseInt(allLoveCounts[num].textContent);  //get current count
     var currentState = allLoveCounts[num].getAttribute("data-state"); //get current state of love button
-    var currentPhoto = allPhotoContainerElems[num];
+    var currentPhoto = photoContainer[num];
     allLoveCounts[num].remove(); //remove current count from DOM
 
     var postRequest = new XMLHttpRequest();
@@ -19,7 +19,7 @@ function updateLoveCount(num) {
 	  postRequest.addEventListener('load', function (event) {
     if (event.target.status !== 200) {
       alert("Error sending upvote request:\n\n\n" + event.target.response);
-    } else {//apply upvote
+    } else {//apply loveCount
       if (currentState === "off") {
           loveCount += 1;
           currentState = "on";     // mark button as currently on
