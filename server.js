@@ -1,5 +1,4 @@
-
-
+var bodyParser = require('body-Parser');
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
@@ -25,7 +24,7 @@ app.get('/', function (req, res) {
   res.render('content');
 });
 
-
+app.use(body-Parser.json());
 app.use('*', function (req, res) {
 	res.status(404).render('404');
 });
@@ -35,3 +34,9 @@ app.use(express.static('public'));
 app.listen(port, function () {
   console.log("== Server is listening on port", port);
 });
+
+
+
+
+
+
