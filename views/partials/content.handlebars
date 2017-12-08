@@ -1,0 +1,55 @@
+<main class="content-stuff">
+
+      <section id="photos">
+
+		{{#each photos}}
+			{{>photoTemplate}}
+		{{/each}}
+
+
+
+      </section>
+
+
+
+    </main>
+
+    <!-- <aside class="upload-container"> -->
+
+
+
+      <div id="modal-backdrop" class="hidden"></div>
+      <div id="upload-modal" class="hidden">
+        <div class="modal-dialog">
+
+          <div class="modal-header">
+            <h3>Upload an image</h3>
+            <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+          </div>
+
+          <div class="modal-body">
+
+            <input type='file'/>
+            <br><img id="my-img" src="#" alt="your image">
+
+          </div>
+
+          <div class="photo-title-element">
+            <label for="photo-title-input">Image Title</label>
+            <input type="text" id="photo-title-input"></input>
+          </div>
+
+         <!-- <div class="photo-tags-element">
+            <label for="photo-tags-input">Image Tags (Separate with commas, no spaces)</label>
+            <input type="text" id="photo-tags-input"></input>
+          </div>-->
+
+          <div class="modal-footer">
+            <button type="button" id="modal-accept" class="action-button">Upload</button>
+            <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+          </div>
+
+        </div>
+      </div>
+
+    <!-- </aside> -->
