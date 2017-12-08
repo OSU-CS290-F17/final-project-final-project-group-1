@@ -4,7 +4,6 @@
 
 		{{#each photos}}
 			{{>photoTemplate}}
-
 		{{/each}}
 
 
@@ -37,12 +36,14 @@
           </div>
 
           <div class="photo-title-element">
+            <label for="photo-title-input">Image Title</label>
             <input type="text" id="photo-title-input"></input>
           </div>
 
-         <div class="photo-love-count">
-            <span for="love-count">0</label>
-          </div>
+         <!-- <div class="photo-tags-element">
+            <label for="photo-tags-input">Image Tags (Separate with commas, no spaces)</label>
+            <input type="text" id="photo-tags-input"></input>
+          </div>-->
 
           <div class="modal-footer">
             <button type="button" id="modal-accept" class="action-button">Upload</button>
