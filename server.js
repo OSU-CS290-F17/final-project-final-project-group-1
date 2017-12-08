@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
     } else {
       console.log("== query results:", results);
       res.status(200).render('body', {
-        photos: results
+        photos: photoData
       });
     }
   });
@@ -43,29 +43,41 @@ app.get('/', function(req, res) {
 
 app.get('/photos', function (req, res) {
 
-  var peopleDataCollection = mongoConnection.collection('photoData');
+  var photoDataCollection = mongoConnection.collection('photoData');
   photoDataCollection.find({}).toArray(function (err, results) {
     if (err) {
       res.status(500).send("Error fetching people from DB");
     } else {
       console.log("== query results:", results);
-      res.status(200).render('photoPage', {
-        photos: results
+      res.status(200).render('body', {
+        photos: photoData
       });
     }
   });
 });
 
-app.get('/photos/:photoId', function(req, res, next) {
+app.get('/:title', function(req, res, next) {
   var photoDataCollection = mongoConnection.collection('photoData');
 
-  photoDataCollection.find({ photoId: req.params.photoId }).toArray(function (err, results) {
+  photoDataCollection.find({ title: req.params.title }).toArray(function (err, results) {
     if (err) {
       res.status(500).send("Error fetching photos from DB");
     } else if (results.length > 0) {
-      res.status(200).render('photoPage', results[0]);
+      res.status(200).render('photoPage', photoData[0]);
     } else {
       next();
+    }
+  });
+});
+
+app.get('/:title', function (req, res, next) {
+  var photoDataCollection = mongoConnection.collection('photoData');
+  photoDataCollection.updateOne({title: req.params.title}, {$inc: {loveCount: 1}}, function (err, result) {
+    if (err) {
+      res.status(500).send('Error updating photo in datatbase');
+    }
+    else {
+      res.status(200).send('photo loved successfully');
     }
   });
 });
@@ -110,7 +122,7 @@ app.use(express.static('public'));
 //     }
 // });
 
-app.post('/photos/:photoId/addPhoto', function (req, res, next) {
+app.post('/:title/addPhoto', function (req, res, next) {
 
   if (req.body && req.body.photoURL) {
     var photoDataCollection = mongoConnection.collection('photoData');
@@ -121,7 +133,7 @@ app.post('/photos/:photoId/addPhoto', function (req, res, next) {
     };
 
     photoDataCollection.updateOne(
-      { photoId: req.params.photoId },
+      { title: req.params.title },
       { $push: { photos: photoObj } },
       function (err, result) {
         if (err) {

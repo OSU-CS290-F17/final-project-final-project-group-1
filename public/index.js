@@ -8,17 +8,36 @@ function updateLoveCount(num) {
 
     var loveCount = parseInt(allLoveCounts[num].textContent);  //get current count
     var currentState = allLoveCounts[num].getAttribute("data-state"); //get current state of love button
+    var currentPhoto = allPhotoContainerElems[num];
     allLoveCounts[num].remove(); //remove current count from DOM
 
-    if (currentState === "off") {
-        loveCount += 1;
-        currentState = "on";     // mark button as currently on
-    }
+    var postRequest = new XMLHttpRequest();
+    var postURL = '/:' + currentPhoto.titleText + '/upvote';
+    postRequest.open('POST', postURL, true);
 
-    else {
-        loveCount -= 1;
-        currentState = "off";    // mark button as currently off
-    }
+
+	  postRequest.addEventListener('load', function (event) {
+    if (event.target.status !== 200) {
+      alert("Error sending upvote request:\n\n\n" + event.target.response);
+    } else {//apply upvote
+      if (currentState === "off") {
+          loveCount += 1;
+          currentState = "on";     // mark button as currently on
+      }
+
+      else {
+          loveCount -= 1;
+          currentState = "off";    // mark button as currently off
+      }
+
+    // console.log("upvote successful!");
+		// var voteCount = parseInt(document.getElementsByClassName('post-score')[0].textContent);
+		// voteCount++;
+		// document.getElementsByClassName('post-score')[0].textContent = voteCount;
+
+      }
+    });
+	postRequest.send();
 
     console.log('Post #: ', num);
     console.log('loveCount==', loveCount);
@@ -104,15 +123,15 @@ function clearUploadModalInputs() {
 
 }
 
-function getPhotoId() {
-  var currentURL = window.location.pathname;
-  var urlComponents = currentURL.split('/');
-  if (urlComponents[0] === "" && urlComponents[1] === "photos") {
-    return urlComponents[2];
-  } else {
-    return null;
-  }
-}
+// function getPhotoId() {
+//   var currentURL = window.location.pathname;
+//   var urlComponents = currentURL.split('/');
+//   if (urlComponents[0] === "" && urlComponents[1] === "photos") {
+//     return urlComponents[2];
+//   } else {
+//     return null;
+//   }
+// }
 
 
 //closes the modal and implements the createPhotoElement func
@@ -127,7 +146,7 @@ function handleModalAcceptClick() {
   else {
 
     var postRequest = new XMLHttpRequest();
-    var postURL = "/photos/" + getPhotoId() + "/addPhoto";
+    var postURL = "/:" + titleText + "/addPhoto";
     postRequest.open('POST', postURL);
 
     var photoObj = {
