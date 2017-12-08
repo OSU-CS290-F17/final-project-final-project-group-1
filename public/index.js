@@ -89,25 +89,31 @@ function hideUploadModal() {
   showUploadModal.classList.add('hidden');
   modalBackdrop.classList.add('hidden');
 
-  clearSellSomethingModalInputs();
+  clearUploadModalInputs();
 
 }
 
-function clearSellSomethingModalInputs() {
+function clearUploadModalInputs() {
 
-  var postTextInputElements = [
-    document.getElementById('photo-title-input'),
-    document.getElementById('my-img'),
-  ];
-
-  postTextInputElements.forEach(function (inputElem) {
-    inputElem.value = '';
-  });
-
-  var checkedPostConditionButton = document.querySelector('#post-condition-fieldset input[checked]');
-  checkedPostConditionButton.checked = true;
+  var modalInputElements = document.querySelectorAll('#upload-modal input')
+  for (var i = 0; i < modalInputElements.length; i++) {
+    modalInputElements[i].value = '';
+  }
+  var imgPreview = document.getElementById('my-img');
+  imgPreview.src = '';
 
 }
+
+function getPhotoId() {
+  var currentURL = window.location.pathname;
+  var urlComponents = currentURL.split('/');
+  if (urlComponents[0] === "" && urlComponents[1] === "photos") {
+    return urlComponents[2];
+  } else {
+    return null;
+  }
+}
+
 
 //closes the modal and implements the createPhotoElement func
 function handleModalAcceptClick() {
@@ -120,14 +126,34 @@ function handleModalAcceptClick() {
   }
   else {
 
-    var newPhotoElem = createPhotoElement(titleText, photoURL);
-    var photoContainer = document.querySelector('.photo-container');
-    photoContainer.insertAdjacentHTML('beforeend', newPhotoElem);
+    var postRequest = new XMLHttpRequest();
+    var postURL = "/photos/" + getPhotoId() + "/addPhoto";
+    postRequest.open('POST', postURL);
+
+    var photoObj = {
+      title: titleText,
+      photoURL: photoURL,
+			loveCount: 0
+    };
+    var requestBody = JSON.stringify(photoObj);
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+
+    postRequest.addEventListener('load', function (event) {
+      if (event.target.status !== 200) {
+        alert("Error storing photo in database:\n\n\n" + event.target.response);
+      } else {
+
+        var newPhotoElem = createPhotoElement(titleText, photoURL);
+        var photoContainer = document.querySelector('photo-container');
+        photoContainer.insertAdjacentHTML('beforeend', newPhotoElem);
+
+      }
+    });
+
+    postRequest.send(requestBody);
 
     hideUploadModal();
-
   }
-
 }
 
 //uses photoTemplate to create a new dogPost and sets the values of said post
@@ -135,17 +161,16 @@ function createPhotoElement(title, photoURL) {
 
 	var photoTemplateArguments = {
     photoURL: photoURL,
-	title: title,
-	loveCount: 0
+	  title: title,
+	  loveCount: 0
   };
 
     var postHTML = Handlebars.templates.photoTemplate(photoTemplateArguments);
-	console.log("== postHTML:", postHTML);
+	  console.log("== postHTML:", postHTML);
 
 
 
-    var photos = document.getElementById('photos');
-    photos.insertAdjacentHTML('beforeend', postHTML);
+    return postHTML;
 }//end of photo template
 
 window.addEventListener('DOMContentLoaded', function () {
