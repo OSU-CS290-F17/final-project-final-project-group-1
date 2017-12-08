@@ -1,3 +1,4 @@
+var bodyParser = require('body-Parser');
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
@@ -27,7 +28,7 @@ app.get('/', function (req, res) {
   res.render('content');
 });
 
-
+app.use(body-Parser.json());
 app.use('*', function (req, res) {
 	res.status(404).render('404');
 });
@@ -43,3 +44,9 @@ MongoClient.connect(mongoURL, function (err, connection) {
     console.log("== Server listening on port:", port);
   });
 });
+
+
+
+
+
+
