@@ -41,20 +41,20 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('/photos', function (req, res) {
-
-  var photoDataCollection = mongoConnection.collection('photoData');
-  photoDataCollection.find({}).toArray(function (err, results) {
-    if (err) {
-      res.status(500).send("Error fetching people from DB");
-    } else {
-      console.log("== query results:", results);
-      res.status(200).render('body', {
-        photos: photoData
-      });
-    }
-  });
-});
+// app.get('/photos', function (req, res) {
+//
+//   var photoDataCollection = mongoConnection.collection('photoData');
+//   photoDataCollection.find({}).toArray(function (err, results) {
+//     if (err) {
+//       res.status(500).send("Error fetching people from DB");
+//     } else {
+//       console.log("== query results:", results);
+//       res.status(200).render('body', {
+//         photos: photoData
+//       });
+//     }
+//   });
+// });
 
 app.get('/:title', function(req, res, next) {
   var photoDataCollection = mongoConnection.collection('photoData');
@@ -70,7 +70,7 @@ app.get('/:title', function(req, res, next) {
   });
 });
 
-app.get('/:title', function (req, res, next) {
+app.get('/:title/upvote', function (req, res, next) {
   var photoDataCollection = mongoConnection.collection('photoData');
   photoDataCollection.updateOne({title: req.params.title}, {$inc: {loveCount: 1}}, function (err, result) {
     if (err) {
